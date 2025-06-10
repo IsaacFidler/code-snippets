@@ -12,6 +12,8 @@ yarn-error.log*
 # Editor directories and files
 .vscode/
 .idea/
+# Allow committed VSCode workspace settings
+!.vscode/settings.json
 *.swp
 
 # Environment variables
