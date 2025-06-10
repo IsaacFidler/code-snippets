@@ -90,14 +90,19 @@ We use [markdownlint](https://github.com/DavidAnson/markdownlint) and [Prettier]
 ### CLI
 
 - Lint Markdown files:
+
   ```bash
   yarn lint:md
   ```
+
 - Check formatting (Prettier):
+
   ```bash
   yarn lint
   ```
+
 - Automatically format all Markdown files:
+
   ```bash
   yarn format:md
   ```
