@@ -11,6 +11,7 @@ SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 
 read -rp "Category: " CATEGORY
 read -rp "Snippet title (kebab-case): " TITLE
+read -rp "Snippet code (optional, leave blank to edit in VS Code): " SNIPPET_CODE
 
 if [[ -z "$CATEGORY" || -z "$TITLE" ]]; then
   echo "Error: Both category and title are required."
@@ -27,7 +28,22 @@ if [[ -e "$FILE_PATH" ]]; then
   exit 1
 fi
 
-cat > "$FILE_PATH" <<EOF
+if [[ -n "$SNIPPET_CODE" ]]; then
+  cat > "$FILE_PATH" <<EOF
+# $TITLE
+
+<!--
+Description: 
+Tags: 
+-->
+
+\`\`\`
+$SNIPPET_CODE
+\`\`\`
+EOF
+  echo "New snippet created at $FILE_PATH"
+else
+  cat > "$FILE_PATH" <<EOF
 # $TITLE
 
 <!--
@@ -39,11 +55,11 @@ Tags:
 <replace with code snippet>
 \`\`\`
 EOF
-
-if command -v code >/dev/null 2>&1; then
-  code "$FILE_PATH"
-elif command -v code-insiders >/dev/null 2>&1; then
-  code-insiders "$FILE_PATH"
-else
-  echo "New snippet created at $FILE_PATH"
+  if command -v code >/dev/null 2>&1; then
+    code "$FILE_PATH"
+  elif command -v code-insiders >/dev/null 2>&1; then
+    code-insiders "$FILE_PATH"
+  else
+    echo "New snippet created at $FILE_PATH"
+  fi
 fi

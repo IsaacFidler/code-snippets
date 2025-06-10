@@ -1,0 +1,22 @@
+{
+  "name": "code-snippets",
+  "version": "1.0.0",
+  "description": "This repository helps you manage your personal code snippets as individual Markdown files. You can quickly create and search your snippets using a shell script and Raycast.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:md": "markdownlint . --ignore node_modules",
+    "format:md": "prettier --write '**/*.md' --ignore-path .gitignore",
+    "lint": "yarn lint:md && prettier --check '**/*.md' --ignore-path .gitignore"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "markdownlint-cli": "^0.45.0",
+    "prettier": "^3.5.3"
+  }
+}
