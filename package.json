@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "prepare": "husky install",
+    "scan:secrets": "gitleaks detect --source .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:md": "markdownlint . --ignore node_modules",
     "format:md": "prettier --write '**/*.md' --ignore-path .gitignore",
