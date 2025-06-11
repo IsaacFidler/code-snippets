@@ -1,9 +1,9 @@
-# Pipe output to clipboard
-
-<!--
-Description: To pipe the output of a terminal command into you rclipboard on macOS
-Tags: copy, clipboard, terminal, pbcopy, macos
--->
+---
+Title: Pipe Output To Clipboard
+Description: Code snippet for Pipe Output To Clipboard.
+Tags:
+  - TODO: add tags
+---
 
 ```zsh
 your-command | pbcopy

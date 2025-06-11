@@ -1,9 +1,9 @@
-# local-storage-size
-
- <!--
- Description: Logs the size (in KB) of each key in localStorage and the total used space.
- Tags: javascript, browser, localStorage, performance, console
- -->
+---
+Title: Local Storage Size
+Description: Code snippet for Local Storage Size.
+Tags:
+  - TODO: add tags
+---
 
 ```js
 var _lsTotal = 0,
