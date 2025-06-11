@@ -1,0 +1,2 @@
+[[ignore]]
+findings = ["953f4a5a5575062050615de67e2dcb98c1bbea26:api-tools/Curl-post-request.md:curl-auth-header:5"]

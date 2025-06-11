@@ -9,9 +9,14 @@ while [ -L "$SOURCE" ]; do
 done
 SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 
+echo "Existing categories:"
+for d in "$SCRIPT_DIR"/*/; do
+  echo "  - $(basename "$d")"
+done
+echo
 read -rp "Category: " CATEGORY
 read -rp "Snippet title (kebab-case): " TITLE
-read -rp "Snippet code (optional, leave blank to edit in VS Code): " SNIPPET_CODE
+read -rp "Snippet code (optional, leave blank to edit in Vim): " SNIPPET_CODE
 
 if [[ -z "$CATEGORY" || -z "$TITLE" ]]; then
   echo "Error: Both category and title are required."
@@ -63,10 +68,14 @@ EOF
 
 if [[ -n "$SNIPPET_CODE" ]]; then
   echo "New snippet created at $FILE_PATH"
-elif command -v code >/dev/null 2>&1; then
-  code "$FILE_PATH"
-elif command -v code-insiders >/dev/null 2>&1; then
-  code-insiders "$FILE_PATH"
 else
-  echo "New snippet created at $FILE_PATH"
+  if command -v vim >/dev/null 2>&1; then
+    vim "$FILE_PATH"
+  elif command -v code >/dev/null 2>&1; then
+    code "$FILE_PATH"
+  elif command -v code-insiders >/dev/null 2>&1; then
+    code-insiders "$FILE_PATH"
+  else
+    echo "New snippet created at $FILE_PATH"
+  fi
 fi

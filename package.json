@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:md": "markdownlint . --ignore node_modules",
     "format:md": "prettier --write '**/*.md' --ignore-path .gitignore",
-    "lint": "yarn lint:md && prettier --check '**/*.md' --ignore-path .gitignore"
+    "lint": "yarn lint:md && prettier --check '**/*.md' --ignore-path .gitignore",
+    "checks": "yarn scan:secrets && yarn lint"
   },
   "keywords": [],
   "author": "",

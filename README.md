@@ -12,10 +12,31 @@ This repository helps you manage your personal code snippets as individual Markd
 Run the helper script to create a new snippet:
 
 ```bash
-./new-snippet.sh
+./new-snippet
 ```
 
-It will prompt you for a category and a snippet title (in kebab-case), create the folder if needed, and open the snippet in VS Code (if available).
+Before prompting, the script will list existing categories (top-level directories) so you can see what's available and avoid near-duplicates.
+
+It will prompt you for:
+
+- **Category:** choose a top-level directory under which the snippet file will be created. Existing categories are listed first to help avoid near-duplicates.
+- **Snippet title (kebab-case):** the filename (without `.md`), in kebab-case.
+- **Snippet code (optional):** the code content; if left blank, you'll be prompted to edit the file in Vim (if available) or your default editor.
+
+The script generates a Markdown file with a YAML front matter block and a fenced code block, for example:
+
+````markdown
+---
+Title: Example Snippet
+Description: Code snippet for Example Snippet.
+Tags:
+  - TODO: add tags
+---
+
+```txt
+<replace with code snippet>
+```
+````
 
 ## Using Raycast
 
@@ -53,6 +74,20 @@ To help prevent accidental commits of credentials and other secrets, this projec
   ```
 
 - **Pre-commit hook** (powered by [Husky](https://github.com/typicode/husky)) that automatically scans for secrets before each commit and blocks the commit if any leaks are found.
+
+### Ignoring False Positives
+
+If you have templates or examples that Gitleaks flags wrongly (e.g., a template curl request), you can skip that line by appending an inline allow directive:
+
+```text
+-H "Authorization: Bearer YOUR_TOKEN_HERE" # gitleaks:allow
+```
+
+Alternatively, to ignore entire files or directories (such as template files), you can add a `.gitleaksignore` file in the repository root listing paths to exclude from scanning. For example:
+
+```text
+api-tools/Curl-post-request.md
+```
 
 ### Installation
 

@@ -7,7 +7,7 @@ Tags:
 
 ```text
 curl -X POST https://api.example.com/endpoint \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" # gitleaks:allow \
   -H "Content-Type: application/json" \
   -d '{"key": "value"}'
 ```
