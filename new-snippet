@@ -28,38 +28,45 @@ if [[ -e "$FILE_PATH" ]]; then
   exit 1
 fi
 
+OLDIFS=$IFS
+IFS='-'
+read -ra TITLE_PARTS <<< "$TITLE"
+IFS=$OLDIFS
+PRETTY_TITLE=""
+for PART in "${TITLE_PARTS[@]}"; do
+  FIRST_CHAR="${PART:0:1}"
+  FIRST_CHAR_UPPER=$(printf '%s' "$FIRST_CHAR" | tr '[:lower:]' '[:upper:]')
+  PRETTY_TITLE+="${FIRST_CHAR_UPPER}${PART:1} "
+done
+PRETTY_TITLE="${PRETTY_TITLE% }"
+
+CODE_LANG="txt"
+
 if [[ -n "$SNIPPET_CODE" ]]; then
-  cat > "$FILE_PATH" <<EOF
-# $TITLE
-
-<!--
-Description: 
-Tags: 
--->
-
-\`\`\`
-$SNIPPET_CODE
-\`\`\`
-EOF
-  echo "New snippet created at $FILE_PATH"
+  CODE_BLOCK="$SNIPPET_CODE"
 else
-  cat > "$FILE_PATH" <<EOF
-# $TITLE
+  CODE_BLOCK="<replace with code snippet>"
+fi
 
-<!--
-Description: 
-Tags: 
--->
+cat > "$FILE_PATH" <<EOF
+---
+Title: $PRETTY_TITLE
+Description: Code snippet for $PRETTY_TITLE.
+Tags:
+  - TODO: add tags
+---
 
-\`\`\`
-<replace with code snippet>
+\`\`\`$CODE_LANG
+$CODE_BLOCK
 \`\`\`
 EOF
-  if command -v code >/dev/null 2>&1; then
-    code "$FILE_PATH"
-  elif command -v code-insiders >/dev/null 2>&1; then
-    code-insiders "$FILE_PATH"
-  else
-    echo "New snippet created at $FILE_PATH"
-  fi
+
+if [[ -n "$SNIPPET_CODE" ]]; then
+  echo "New snippet created at $FILE_PATH"
+elif command -v code >/dev/null 2>&1; then
+  code "$FILE_PATH"
+elif command -v code-insiders >/dev/null 2>&1; then
+  code-insiders "$FILE_PATH"
+else
+  echo "New snippet created at $FILE_PATH"
 fi
