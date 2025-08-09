@@ -2,7 +2,7 @@
 Title: Graphql React Component Template
 Description: Code snippet for Graphql React Component Template.
 Tags:
-  - TODO: add tags
+  - Graphql, React
 ---
 
 ```txt
