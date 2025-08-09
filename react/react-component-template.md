@@ -1,5 +1,5 @@
 ---
-Title: New Component
+Title: React Component Template
 Description: Code snippet for New Component.
 Tags:
   - React, Functional
