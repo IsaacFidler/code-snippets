@@ -24,8 +24,11 @@ to_kebab_case() {
     | sed 's/-$//'
 }
 
-# Get existing categories
-mapfile -t CATEGORIES < <(find "$SNIPPETS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+# Get existing categories (compatible with bash 3.x)
+CATEGORIES=()
+while IFS= read -r dir; do
+  CATEGORIES+=("$dir")
+done < <(find "$SNIPPETS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
 
 echo "Existing categories:"
 for i in "${!CATEGORIES[@]}"; do
