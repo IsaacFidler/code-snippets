@@ -8,22 +8,64 @@ while [ -L "$SOURCE" ]; do
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+SNIPPETS_DIR="$SCRIPT_DIR/snippets"
+
+# Convert any input to kebab-case
+to_kebab_case() {
+  local input="$1"
+  echo "$input" \
+    | sed 's/\([a-z]\)\([A-Z]\)/\1-\2/g' \
+    | sed 's/\([A-Z][A-Z]*\)\([A-Z][a-z]\)/\1-\2/g' \
+    | tr '[:upper:]' '[:lower:]' \
+    | tr ' _' '--' \
+    | sed 's/[^a-z0-9-]//g' \
+    | sed 's/--*/-/g' \
+    | sed 's/^-//' \
+    | sed 's/-$//'
+}
+
+# Get existing categories
+mapfile -t CATEGORIES < <(find "$SNIPPETS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
 
 echo "Existing categories:"
-for d in "$SCRIPT_DIR"/*/; do
-  echo "  - $(basename "$d")"
+for i in "${!CATEGORIES[@]}"; do
+  printf "  %2d) %s\n" "$((i + 1))" "${CATEGORIES[$i]}"
 done
+echo "   n) New category"
 echo
-read -rp "Category: " CATEGORY
-read -rp "Snippet title (kebab-case): " TITLE
-read -rp "Snippet code (optional, leave blank to edit in Vim): " SNIPPET_CODE
 
-if [[ -z "$CATEGORY" || -z "$TITLE" ]]; then
-  echo "Error: Both category and title are required."
-  exit 1
+read -rp "Select category (number or name): " CATEGORY_INPUT
+
+# Handle category selection
+if [[ "$CATEGORY_INPUT" =~ ^[0-9]+$ ]]; then
+  INDEX=$((CATEGORY_INPUT - 1))
+  if [[ $INDEX -ge 0 && $INDEX -lt ${#CATEGORIES[@]} ]]; then
+    CATEGORY="${CATEGORIES[$INDEX]}"
+  else
+    echo "Error: Invalid category number"
+    exit 1
+  fi
+elif [[ "$CATEGORY_INPUT" == "n" ]]; then
+  read -rp "New category name: " CATEGORY
+  CATEGORY=$(to_kebab_case "$CATEGORY")
+else
+  CATEGORY=$(to_kebab_case "$CATEGORY_INPUT")
 fi
 
-TARGET_DIR="$SCRIPT_DIR/$CATEGORY"
+read -rp "Snippet title: " TITLE
+TITLE=$(to_kebab_case "$TITLE")
+
+echo "→ Using: $CATEGORY/$TITLE.md"
+
+# Common languages
+echo
+echo "Common languages: bash, typescript, tsx, javascript, sql, graphql, prisma, json, yaml, dockerfile"
+read -rp "Code language [bash]: " CODE_LANG
+CODE_LANG="${CODE_LANG:-bash}"
+
+read -rp "Snippet code (optional, leave blank to edit in editor): " SNIPPET_CODE
+
+TARGET_DIR="$SNIPPETS_DIR/$CATEGORY"
 mkdir -p "$TARGET_DIR"
 
 FILE_PATH="$TARGET_DIR/$TITLE.md"
@@ -33,6 +75,7 @@ if [[ -e "$FILE_PATH" ]]; then
   exit 1
 fi
 
+# Convert kebab-case to Title Case for display
 OLDIFS=$IFS
 IFS='-'
 read -ra TITLE_PARTS <<< "$TITLE"
@@ -45,8 +88,6 @@ for PART in "${TITLE_PARTS[@]}"; do
 done
 PRETTY_TITLE="${PRETTY_TITLE% }"
 
-CODE_LANG="txt"
-
 if [[ -n "$SNIPPET_CODE" ]]; then
   CODE_BLOCK="$SNIPPET_CODE"
 else
@@ -58,7 +99,7 @@ cat > "$FILE_PATH" <<EOF
 Title: $PRETTY_TITLE
 Description: Code snippet for $PRETTY_TITLE.
 Tags:
-  - TODO: add tags
+  - $CATEGORY
 ---
 
 \`\`\`$CODE_LANG
@@ -79,3 +120,9 @@ else
     echo "New snippet created at $FILE_PATH"
   fi
 fi
+
+# Auto-commit the new snippet
+cd "$SCRIPT_DIR"
+git add "$FILE_PATH"
+git commit -m "Add snippet: $CATEGORY/$TITLE"
+echo "Committed: $CATEGORY/$TITLE"

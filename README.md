@@ -4,59 +4,109 @@ This repository helps you manage your personal code snippets as individual Markd
 
 ## Project Structure
 
-- Each snippet lives in its own Markdown file under a category folder.
-- Categories are top-level directories (e.g. `react/`, `nestjs/`, `sql/`).
+```text
+code-snippets/
+├── snippets/           # All snippets live here
+│   ├── cli/
+│   ├── docker/
+│   ├── git/
+│   ├── graphql/
+│   ├── javascript/
+│   ├── nestjs/
+│   ├── nextjs/
+│   ├── prisma/
+│   ├── react/
+│   ├── sql/
+│   ├── testing/
+│   ├── typescript/
+│   └── ...
+├── new-snippet         # Script to create new snippets
+├── package.json
+└── README.md
+```
+
+Each snippet lives in its own Markdown file under a category folder inside `snippets/`.
+
+## Naming Conventions
+
+All names use **kebab-case** (lowercase with hyphens):
+
+| Type       | Example                                        |
+| ---------- | ---------------------------------------------- |
+| Categories | `react`, `styled-components`, `cli`            |
+| Snippets   | `use-debounce-hook.md`, `amend-last-commit.md` |
+
+The `new-snippet` script auto-converts any input to kebab-case, so you can type `SQL` or `mySnippet` and it will be normalized automatically.
 
 ## Adding a New Snippet
 
-Run the helper script to create a new snippet:
+Run the helper script from anywhere:
 
 ```bash
 ./new-snippet
+# or if added to PATH:
+new-snippet
 ```
 
-Before prompting, the script will list existing categories (top-level directories) so you can see what's available and avoid near-duplicates.
+The script will:
 
-It will prompt you for:
+1. **Show numbered categories** for quick selection (type `3` instead of `react`)
+2. **Prompt for snippet title** (auto-converts to kebab-case)
+3. **Prompt for code language** (defaults to `bash`)
+4. **Open your editor** if no code provided inline
+5. **Auto-commit** the new snippet to git
 
-- **Category:** choose a top-level directory under which the snippet file will be created. Existing categories are listed first to help avoid near-duplicates.
-- **Snippet title (kebab-case):** the filename (without `.md`), in kebab-case.
-- **Snippet code (optional):** the code content; if left blank, you'll be prompted to edit the file in Vim (if available) or your default editor.
+Example session:
 
-The script generates a Markdown file with a YAML front matter block and a fenced code block, for example:
+```text
+Existing categories:
+   1) cli
+   2) docker
+   3) git
+   ...
+  15) typescript
+   n) New category
+
+Select category (number or name): 3
+Snippet title: Stash Changes
+→ Using: git/stash-changes.md
+
+Common languages: bash, typescript, tsx, javascript, sql, graphql...
+Code language [bash]:
+```
+
+The script generates a Markdown file with YAML front matter:
 
 ````markdown
 ---
-Title: Example Snippet
-Description: Code snippet for Example Snippet.
+Title: Stash Changes
+Description: Code snippet for Stash Changes.
 Tags:
-  - TODO: add tags
+  - git
 ---
 
-```txt
-<replace with code snippet>
+```bash
+git stash
 ```
 ````
 
 ## Using Raycast
 
-### Markdown Snippets Extension
+### Snippet Surfer Extension
 
-1. Install the "Markdown Snippets" extension for Raycast.
-2. Configure the extension to point to this repository’s root directory.
-3. Invoke the extension (e.g. using the `mdsnippets` command) and start typing to search snippets.
+1. Install the "Snippet Surfer" extension for Raycast.
+2. Configure the extension to point to the `snippets/` folder (not the repo root).
+3. Search and copy snippets directly from Raycast.
 
-### Script Command
+### Script Command (Alternative)
 
-Alternatively, you can add a script command in Raycast to search snippets:
+You can also add a script command in Raycast to search snippets:
 
 ```bash
 #!/usr/bin/env bash
-REPO_DIR="<path-to-repo>"
-grep -R --color=always "" "$REPO_DIR"/*.md
+SNIPPETS_DIR="$HOME/dev-projects/code-snippets/snippets"
+grep -R --color=always "" "$SNIPPETS_DIR"
 ```
-
-Replace `<path-to-repo>` with the path to this repository, save it as `search-snippets.sh`, make it executable, and add it to Raycast.
 
 ## Why One Snippet Per File
 
@@ -86,7 +136,7 @@ If you have templates or examples that Gitleaks flags wrongly (e.g., a template 
 Alternatively, to ignore entire files or directories (such as template files), you can add a `.gitleaksignore` file in the repository root listing paths to exclude from scanning. For example:
 
 ```text
-api-tools/Curl-post-request.md
+snippets/api-tools/curl-post-request.md
 ```
 
 ### Installation
