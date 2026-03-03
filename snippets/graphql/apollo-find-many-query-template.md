@@ -2,7 +2,11 @@
 Title: Apollo Find Many Query Template
 Description: Code snippet for Apollo Find Many Query Template.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - query
+  - findmany
+  - template
 ---
 
 ```txt

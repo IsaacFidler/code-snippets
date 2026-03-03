@@ -2,7 +2,11 @@
 Title: Pipe Output To Clipboard
 Description: Code snippet for Pipe Output To Clipboard.
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - clipboard
+  - productivity
 ---
 
 ```zsh

@@ -2,7 +2,11 @@
 Title: Jump To Project With Z
 Description: Code snippet for Jump To Project With Z.
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - navigation
+  - zsh
 ---
 
 ```text

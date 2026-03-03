@@ -2,7 +2,11 @@
 Title: Prisma Create With Relations
 Description: Code snippet for Prisma Create With Relations.
 Tags:
-  - TODO: add tags
+  - prisma
+  - database
+  - orm
+  - create
+  - relations
 ---
 
 ```txt

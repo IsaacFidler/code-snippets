@@ -2,7 +2,12 @@
 Title: React Testing Library Template
 Description: Code snippet for React Testing Library Template.
 Tags:
-  - TODO: add tags
+  - react-testing-library
+  - rtl
+  - testing-library
+  - react
+  - testing
+  - typescript
 ---
 
 ```txt

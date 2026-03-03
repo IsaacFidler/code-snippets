@@ -2,7 +2,10 @@
 Title: Local Storage Size
 Description: Code snippet for Local Storage Size.
 Tags:
-  - TODO: add tags
+  - javascript
+  - browser
+  - local-storage
+  - debugging
 ---
 
 ```js

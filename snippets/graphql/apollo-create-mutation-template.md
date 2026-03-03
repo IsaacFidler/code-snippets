@@ -2,7 +2,11 @@
 Title: Apollo Create Mutation Template
 Description: Code snippet for Apollo Create Mutation Template.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - mutation
+  - create
+  - template
 ---
 
 ```txt

@@ -2,7 +2,10 @@
 Title: Entity Template
 Description: Code snippet for entity Template.
 Tags:
-  - TODO: add tags
+  - prisma
+  - typescript
+  - entity
+  - template
 ---
 
 ```txt

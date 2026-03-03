@@ -2,7 +2,11 @@
 Title: Service With Prisma Template
 Description: Code snippet for Service With Prisma Template.
 Tags:
-  - TODO: add tags
+  - nestjs
+  - nest
+  - prisma
+  - service
+  - typescript
 ---
 
 ```txt

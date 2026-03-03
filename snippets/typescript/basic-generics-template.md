@@ -2,7 +2,10 @@
 Title: Basic Generics Template
 Description: Code snippet for Basic Generics Template.
 Tags:
-  - TODO: add tags
+  - typescript
+  - generics
+  - typing
+  - template
 ---
 
 ```txt

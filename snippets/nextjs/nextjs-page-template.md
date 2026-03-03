@@ -2,7 +2,11 @@
 Title: Nextjs Page Template
 Description: Code snippet for Nextjs Page Template.
 Tags:
-  - TODO: add tags
+  - nextjs
+  - react
+  - typescript
+  - page
+  - template
 ---
 
 ```txt

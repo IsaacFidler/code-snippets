@@ -2,7 +2,11 @@
 Title: Branch Diff Main Specific File
 Description: Code snippet for Branch Diff Main Specific File.
 Tags:
-  - TODO: add tags
+  - git
+  - version-control
+  - diff
+  - branch
+  - file
 ---
 
 ```txt

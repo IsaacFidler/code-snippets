@@ -2,7 +2,11 @@
 Title: Complex Query Template
 Description: Code snippet for Complex Query Template.
 Tags:
-  - TODO: add tags
+  - prisma
+  - database
+  - orm
+  - query
+  - template
 ---
 
 ```txt

@@ -2,7 +2,11 @@
 Title: Apollo Query Template With Variable
 Description: Code snippet for Query Template With Variable.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - query
+  - variables
+  - template
 ---
 
 ```txt

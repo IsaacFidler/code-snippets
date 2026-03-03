@@ -2,7 +2,11 @@
 Title: Prisma Findmany Template
 Description: Code snippet for Prisma Findmany Template.
 Tags:
-  - TODO: add tags
+  - prisma
+  - database
+  - orm
+  - findmany
+  - query
 ---
 
 ```txt

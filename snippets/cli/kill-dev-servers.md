@@ -2,7 +2,11 @@
 Title: Kill Dev Servers
 Description: Code snippet for Kill Dev Servers.
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - dev-server
+  - processes
 ---
 
 ```txt

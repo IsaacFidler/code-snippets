@@ -2,7 +2,11 @@
 Title: List All Tables
 Description: Code snippet for List All Tables.
 Tags:
-  - TODO: add tags
+  - sql
+  - database
+  - schema
+  - tables
+  - query
 ---
 
 ```txt

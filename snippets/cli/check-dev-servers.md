@@ -2,7 +2,11 @@
 Title: Check Dev Servers
 Description: Code snippet for Check Dev Servers.
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - dev-server
+  - debugging
 ---
 
 ```txt

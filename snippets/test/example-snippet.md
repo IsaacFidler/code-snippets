@@ -2,7 +2,9 @@
 Title: Example Snippet
 Description: Code snippet for Example Snippet.
 Tags:
-  - TODO: add tags
+  - example
+  - template
+  - snippet
 ---
 
 ```txt

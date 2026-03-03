@@ -2,7 +2,11 @@
 Title: Apollo Client UseQuery Variables Graphql
 Description: Code snippet for Apollo Client UseQuery Variables Graphql.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - react
+  - query
+  - usequery
 ---
 
 ```txt

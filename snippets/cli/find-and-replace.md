@@ -2,7 +2,11 @@
 Title: Find And Replace
 Description: Find files containing "data-uploads" and replace
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - search
+  - replace
 ---
 
 ```txt

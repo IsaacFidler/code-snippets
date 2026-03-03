@@ -2,7 +2,11 @@
 Title: Unit Test Template
 Description: Code snippet for Unit Test Template.
 Tags:
-  - TODO: add tags
+  - testing
+  - unit-test
+  - jest
+  - template
+  - typescript
 ---
 
 ```txt

@@ -2,7 +2,10 @@
 Title: Basic Docker File
 Description: Code snippet for Basic Docker File.
 Tags:
-  - TODO: add tags
+  - docker
+  - containers
+  - dockerfile
+  - nodejs
 ---
 
 ```txt

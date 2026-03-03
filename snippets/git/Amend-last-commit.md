@@ -2,7 +2,10 @@
 Title: Amend Last Commit
 Description: Code snippet for Amend Last Commit.
 Tags:
-  - TODO: add tags
+  - git
+  - version-control
+  - commit
+  - amend
 ---
 
 ```zsh

@@ -2,7 +2,11 @@
 Title: Apollo Update Mutation Template
 Description: Code snippet for Apollo Update Mutation Template.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - mutation
+  - update
+  - template
 ---
 
 ```txt

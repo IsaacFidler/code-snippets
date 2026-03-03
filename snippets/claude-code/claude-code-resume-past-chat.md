@@ -2,7 +2,11 @@
 Title: Claude Code Resume Past Chat
 Description: Code snippet for Claude Code Resume Past Chat.
 Tags:
-  - TODO: add tags
+  - claude-code
+  - ai
+  - llm
+  - workflow
+  - prompt
 ---
 
 ```txt

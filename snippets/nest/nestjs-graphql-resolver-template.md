@@ -2,7 +2,11 @@
 Title: Nestjs Graphql Resolver Template
 Description: Code snippet for Nestjs Graphql Resolver Template.
 Tags:
-  - TODO: add tags
+  - nestjs
+  - nest
+  - graphql
+  - resolver
+  - typescript
 ---
 
 ```txt

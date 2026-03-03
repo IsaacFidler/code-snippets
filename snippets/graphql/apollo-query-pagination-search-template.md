@@ -2,7 +2,11 @@
 Title: Apollo Query Pagination Search Template
 Description: Code snippet for Apollo Query Pagination Search Template.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - query
+  - pagination
+  - search
 ---
 
 ```txt

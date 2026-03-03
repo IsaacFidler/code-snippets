@@ -2,7 +2,10 @@
 Title: Dto Template
 Description: Code snippet for Dto Template.
 Tags:
-  - TODO: add tags
+  - prisma
+  - typescript
+  - dto
+  - template
 ---
 
 ```txt

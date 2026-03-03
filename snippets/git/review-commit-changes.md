@@ -2,7 +2,11 @@
 Title: Review Commit Changes
 Description: Code snippet for Review Commit Changes.
 Tags:
-  - TODO: add tags
+  - git
+  - version-control
+  - review
+  - commit
+  - diff
 ---
 
 ```txt

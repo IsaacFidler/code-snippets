@@ -2,7 +2,11 @@
 Title: Apollo Delete Mutation Template
 Description: Code snippet for Apollo Delete Mutation Template.
 Tags:
-  - TODO: add tags
+  - graphql
+  - apollo
+  - mutation
+  - delete
+  - template
 ---
 
 ```txt

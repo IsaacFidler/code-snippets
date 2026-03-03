@@ -2,7 +2,11 @@
 Title: Styled Component Template
 Description: Code snippet for Styled Component Template.
 Tags:
-  - TODO: add tags
+  - react
+  - styled-components
+  - css
+  - component
+  - template
 ---
 
 ```txt

@@ -2,7 +2,10 @@
 Title: Test Ql
 Description: Code snippet for Test Ql.
 Tags:
-  - TODO: add tags
+  - sql
+  - database
+  - query
+  - testing
 ---
 
 ```txt

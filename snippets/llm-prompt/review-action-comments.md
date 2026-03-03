@@ -2,7 +2,11 @@
 Title: Review Action Comments
 Description: Code snippet for Review Action Comments.
 Tags:
-  - TODO: add tags
+  - llm
+  - prompt
+  - code-review
+  - comments
+  - ai
 ---
 
 ```txt

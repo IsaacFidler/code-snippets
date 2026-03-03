@@ -2,7 +2,11 @@
 Title: Build And Run Node Container
 Description: Code snippet for Build And Run Node Container.
 Tags:
-  - TODO: add tags
+  - docker
+  - containers
+  - nodejs
+  - build
+  - run
 ---
 
 ```txt

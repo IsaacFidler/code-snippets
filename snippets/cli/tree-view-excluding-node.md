@@ -2,7 +2,11 @@
 Title: Tree View Excluding Node
 Description: Code snippet for Tree View Excluding Node. It will log this to the terminal and copy to clipboard
 Tags:
-  - TODO: add tags
+  - cli
+  - shell
+  - terminal
+  - tree
+  - filesystem
 ---
 
 ```txt

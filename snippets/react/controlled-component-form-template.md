@@ -2,7 +2,11 @@
 Title: Controlled Component Form Template
 Description: Code snippet for Controlled Component Form Template.
 Tags:
-  - TODO: add tags
+  - react
+  - forms
+  - controlled-component
+  - typescript
+  - template
 ---
 
 ```txt

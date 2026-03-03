@@ -2,7 +2,11 @@
 Title: Schema Template
 Description: Code snippet for Schema Template.
 Tags:
-  - TODO: add tags
+  - prisma
+  - database
+  - schema
+  - orm
+  - template
 ---
 
 ```txt

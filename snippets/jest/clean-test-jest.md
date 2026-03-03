@@ -2,7 +2,10 @@
 Title: Clean Test Jest
 Description: Code snippet for Clean Test Jest.
 Tags:
-  - TODO: add tags
+  - jest
+  - testing
+  - cleanup
+  - unit-test
 ---
 
 ```txt

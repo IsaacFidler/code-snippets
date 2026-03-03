@@ -1,11 +1,14 @@
 ---
 Title: Jest Function Test Template
-Description: Code snippet for Jest Function Test Template.
+Description: Basic Jest test structure with AAA pattern for unit testing functions
 Tags:
-  - TODO: add tags
+  - jest
+  - testing
+  - unit-test
+  - typescript
 ---
 
-```txt
+```typescript
 // functionName.test.js
 
 import { functionName } from './functionName';

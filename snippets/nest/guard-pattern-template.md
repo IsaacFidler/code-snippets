@@ -2,7 +2,11 @@
 Title: Guard Pattern Template
 Description: Code snippet for Guard Pattern Template.
 Tags:
-  - TODO: add tags
+  - nestjs
+  - nest
+  - typescript
+  - backend
+  - guard
 ---
 
 ```txt
