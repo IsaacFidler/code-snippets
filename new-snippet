@@ -10,6 +10,37 @@ done
 SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
 SNIPPETS_DIR="$SCRIPT_DIR/snippets"
 
+# Map folders to the filename prefix used for global search.
+prefix_for_category() {
+  case "$1" in
+    SQL) echo "sql" ;;
+    api-tools) echo "api" ;;
+    claude-code) echo "claude" ;;
+    cli|cli-navigation) echo "cli" ;;
+    docker) echo "docker" ;;
+    express) echo "express" ;;
+    git) echo "git" ;;
+    graphql) echo "graphql" ;;
+    javascript) echo "js" ;;
+    jest) echo "jest" ;;
+    llm-prompt) echo "prompt" ;;
+    misc) echo "misc" ;;
+    nest) echo "nest" ;;
+    nextjs) echo "nextjs" ;;
+    prisma) echo "prisma" ;;
+    react) echo "react" ;;
+    redux-toolkit) echo "rtk" ;;
+    regex) echo "regex" ;;
+    styled-components) echo "styled" ;;
+    test) echo "test" ;;
+    testing) echo "testing" ;;
+    typescript) echo "ts" ;;
+    vim) echo "vim" ;;
+    vscode) echo "vscode" ;;
+    *) echo "$(to_kebab_case "$1")" ;;
+  esac
+}
+
 # Convert any input to kebab-case
 to_kebab_case() {
   local input="$1"
@@ -55,8 +86,19 @@ else
   CATEGORY=$(to_kebab_case "$CATEGORY_INPUT")
 fi
 
+PREFIX=$(prefix_for_category "$CATEGORY")
+if [[ "$CATEGORY" == "testing" ]]; then
+  read -rp "Snippet prefix for testing [testing]: " PREFIX_INPUT
+  PREFIX_INPUT=${PREFIX_INPUT:-testing}
+  PREFIX=$(to_kebab_case "$PREFIX_INPUT")
+fi
+
 read -rp "Snippet title: " TITLE
 TITLE=$(to_kebab_case "$TITLE")
+
+if [[ "$TITLE" != "$PREFIX-"* ]]; then
+  TITLE="$PREFIX-$TITLE"
+fi
 
 echo "→ Using: $CATEGORY/$TITLE.md"
 

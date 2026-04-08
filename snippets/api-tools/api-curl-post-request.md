@@ -2,7 +2,10 @@
 Title: Curl Post Request
 Description: Code snippet for Curl Post Request.
 Tags:
-  - TODO: curl, api, post, bearer
+  - curl
+  - api
+  - post
+  - bearer
 ---
 
 ```text

@@ -13,6 +13,6 @@ Tags:
 ```typescript
 const row = screen.getByRole("row", { name: /flowers/i });
 expect(
-  within(row).getByRole("button", { name: /issue invoice/i }),
+  within(row).getByRole("button", { name: /view details/i }),
 ).toBeInTheDocument();
 ```

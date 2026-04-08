@@ -12,11 +12,11 @@ code-snippets/
 │   ├── git/
 │   ├── graphql/
 │   ├── javascript/
-│   ├── nestjs/
+│   ├── nest/
 │   ├── nextjs/
 │   ├── prisma/
 │   ├── react/
-│   ├── sql/
+│   ├── SQL/
 │   ├── testing/
 │   ├── typescript/
 │   └── ...
@@ -29,14 +29,22 @@ Each snippet lives in its own Markdown file under a category folder inside `snip
 
 ## Naming Conventions
 
-All names use **kebab-case** (lowercase with hyphens):
+All names use **kebab-case** (lowercase with hyphens) and every snippet filename starts with a short search-friendly prefix.
 
-| Type       | Example                                        |
-| ---------- | ---------------------------------------------- |
-| Categories | `react`, `styled-components`, `cli`            |
-| Snippets   | `use-debounce-hook.md`, `amend-last-commit.md` |
+| Type       | Example                                                  |
+| ---------- | -------------------------------------------------------- |
+| Categories | `react`, `styled-components`, `cli`                      |
+| Snippets   | `react-use-debounce-hook.md`, `git-amend-last-commit.md` |
 
-The `new-snippet` script auto-converts any input to kebab-case, so you can type `SQL` or `mySnippet` and it will be normalized automatically.
+Examples of prefixes used in filenames:
+
+- `react-`, `rtl-`, `rtk-`, `ts-`, `js-`
+- `git-`, `cli-`, `graphql-`, `prisma-`, `regex-`
+- `jest-`, `express-`, `docker-`, `nextjs-`, `nest-`
+
+The `new-snippet` script auto-converts input to kebab-case and prepends the
+category prefix automatically. For the mixed `testing/` folder, you can choose
+`rtl`, `jest`, or `testing` when creating a new snippet.
 
 ## Adding a New Snippet
 
@@ -51,10 +59,11 @@ new-snippet
 The script will:
 
 1. **Show numbered categories** for quick selection (type `3` instead of `react`)
-2. **Prompt for snippet title** (auto-converts to kebab-case)
-3. **Prompt for code language** (defaults to `bash`)
-4. **Open your editor** if no code provided inline
-5. **Auto-commit** the new snippet to git
+2. **Choose a testing prefix** when saving into `testing/` (`rtl`, `jest`, or `testing`)
+3. **Prompt for snippet title** (auto-converts to kebab-case and adds the prefix)
+4. **Prompt for code language** (defaults to `bash`)
+5. **Open your editor** if no code provided inline
+6. **Auto-commit** the new snippet to git
 
 Example session:
 
@@ -69,7 +78,7 @@ Existing categories:
 
 Select category (number or name): 3
 Snippet title: Stash Changes
-→ Using: git/stash-changes.md
+→ Using: git/git-stash-changes.md
 
 Common languages: bash, typescript, tsx, javascript, sql, graphql...
 Code language [bash]:
@@ -136,7 +145,7 @@ If you have templates or examples that Gitleaks flags wrongly (e.g., a template 
 Alternatively, to ignore entire files or directories (such as template files), you can add a `.gitleaksignore` file in the repository root listing paths to exclude from scanning. For example:
 
 ```text
-snippets/api-tools/curl-post-request.md
+snippets/api-tools/api-curl-post-request.md
 ```
 
 ### Installation
