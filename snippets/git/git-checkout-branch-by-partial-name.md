@@ -3,9 +3,10 @@ Title: Checkout Branch by Partial Name
 Description: Find and switch to a local branch when you only remember part of its name
 Tags:
   - git
-  - version-control
   - branch
-  - fuzzy-search
+  - grep
+  - partial
+  - fuzzy
 ---
 
 ```zsh
