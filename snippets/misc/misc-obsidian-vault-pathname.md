@@ -6,5 +6,5 @@ Tags:
 ---
 
 ```other
-'/Users/isaacfidler/Documents/Obsidian Vault/Technical Notes'
+'/Users/isaac.fidler/Documents/Obsidian Vault'
 ```

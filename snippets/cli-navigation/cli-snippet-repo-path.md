@@ -6,5 +6,5 @@ Tags:
 ---
 
 ```bash
-/Users/isaacfidler/dev-projects/code-snippets
+/Users/isaac.fidler/dev-projects/code-snippets
 ```
