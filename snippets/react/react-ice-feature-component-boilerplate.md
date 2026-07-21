@@ -9,10 +9,10 @@ Tags:
 ---
 
 ```tsx
-import * as React from 'react';
-import { useGetThingQuery } from './thing.api';
-import { selectThing } from './thingSelectors';
-import useAppSelector from '../../common/hooks/useAppSelector';
+import * as React from "react";
+import { useGetThingQuery } from "./thing.api";
+import { selectThing } from "./thingSelectors";
+import useAppSelector from "../../common/hooks/useAppSelector";
 
 // Either-or props enforced for real: the component below is typed
 // with this exact union, not a separate all-optional type that
@@ -24,8 +24,11 @@ export type ThingActionProps = {
 // Component name matches the file name (ThingAction lives in ThingAction.tsx).
 export const ThingAction: React.FC<ThingActionProps> = (props) => {
   const { label } = props;
-  const linkProps = 'href' in props ? { href: props.href, target: props.external ? '_blank' : undefined } : {};
-  const onClick = 'onClick' in props ? props.onClick : undefined;
+  const linkProps =
+    "href" in props
+      ? { href: props.href, target: props.external ? "_blank" : undefined }
+      : {};
+  const onClick = "onClick" in props ? props.onClick : undefined;
 
   return (
     <button {...linkProps} onClick={onClick}>
@@ -42,7 +45,9 @@ export interface ThingSummaryProps {
   thingId: string;
 }
 
-export const ThingSummary: React.FC<React.PropsWithChildren<ThingSummaryProps>> = ({ thingId, children }) => {
+export const ThingSummary: React.FC<
+  React.PropsWithChildren<ThingSummaryProps>
+> = ({ thingId, children }) => {
   const { data } = useGetThingQuery();
   const thing = useAppSelector((state) => selectThing(state, data, thingId));
 
